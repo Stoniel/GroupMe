@@ -1,0 +1,25 @@
+from core import command
+import random
+
+class 8ball:
+    def __init__(self, bot):
+        self.bot = bot
+
+    @command.command()
+    def 8ball(self):
+        ops = ['Yes',
+               'No',
+               'Maybe',
+               'Most Likely',
+               'Signs point to yes',
+               'Concentrate and ask again',
+               'I\'m not a learning computer',
+               'Don\'t Count on it',
+               'My Reply is No',
+               'I\ll make my own 8-ball! With blackjack and hookers! In fact, forget the 8-ball',
+               'Very Doubtful']
+        op = random.choice(ops)
+        self.bot.send_message(op)
+
+def setup(bot):
+    bot.add_cog(8ball(bot))
